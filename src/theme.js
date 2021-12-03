@@ -9,7 +9,6 @@ export const theme = createTheme({
       lg: 1200,
       xl: 1920
     }
-    
   },
   components: {
     MuiButton: {
