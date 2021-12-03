@@ -6,7 +6,7 @@ import AddService from "./Pages/AddService";
 
 export const routes = [
   {
-    href: "/dashboard",
+    href: "/",
     icon: <DashboardCustomize fontSize="small" />,
     title: "Dashboard",
     component: <Dashboard />,
