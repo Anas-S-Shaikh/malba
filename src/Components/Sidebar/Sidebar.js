@@ -1,16 +1,10 @@
-import {
-  Box,
-  Divider,
-  Drawer,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Divider, Drawer, Typography, useMediaQuery } from "@mui/material";
 import { NavItem } from "../NavItems/NavItem";
-import { useTheme } from '@mui/material/styles';
-import {routes} from '../../routes'
+import { useTheme } from "@mui/material/styles";
+import { routes } from "../../routes";
 
 export const Sidebar = (props) => {
-  const { open, onClose,  } = props;
+  const { open, onClose } = props;
   const theme = useTheme();
   const lgUp = useMediaQuery(theme.breakpoints.up("lg"), {
     defaultMatches: true,
@@ -27,12 +21,14 @@ export const Sidebar = (props) => {
         }}
       >
         <div>
-          <Box sx={{ p: 3 }}>Malba</Box>
+          <Box sx={{ p: 3, fontFamily:'Roboto', letterSpacing:'4px', fontWeight:'600', textAlign:'center' }}>
+            MALBA
+          </Box>
         </div>
         <Divider
           sx={{
             borderColor: "#2D3748",
-            my: 3,
+            mb: 3,
           }}
         />
         <Box sx={{ flexGrow: 1 }}>
@@ -54,10 +50,10 @@ export const Sidebar = (props) => {
           }}
         >
           <Typography color="neutral.100" variant="subtitle2">
-            lorem lorem ipsum
+            Malba INC.
           </Typography>
           <Typography color="neutral.500" variant="body2">
-            lorem lorem ipsum lorem lorem ipsum.
+            © 2021 Malba, India. All rights reserved
           </Typography>
         </Box>
       </Box>

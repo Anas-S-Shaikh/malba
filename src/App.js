@@ -4,6 +4,9 @@ import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
 import { MainLayout } from "./Layouts/MainLayout";
 
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
 function App() {
   return (
     <ThemeProvider theme={theme}>

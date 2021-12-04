@@ -19,7 +19,7 @@ export const NavItem = (props) => {
     >
       <Link
         to={href}
-        style={{width:"100%", textDecoration: "none"}}
+        style={{width:"100%"}}
       >
         <Button
           startIcon={icon}
