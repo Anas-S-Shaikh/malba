@@ -1,12 +1,10 @@
 import {
   Box,
-  Button,
   Divider,
   Drawer,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { NavItem } from "../NavItems/NavItem";
 import { useTheme } from '@mui/material/styles';
 import {routes} from '../../routes'
