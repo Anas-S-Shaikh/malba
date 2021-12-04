@@ -43,6 +43,7 @@ export const Sidebar = (props) => {
               key={item.title}
               icon={item.icon}
               href={item.href}
+              closeSidebar={onClose}
               title={item.title}
             />
           ))}

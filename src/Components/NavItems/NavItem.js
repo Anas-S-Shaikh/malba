@@ -1,9 +1,10 @@
 import { Box, Button, ListItem } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const NavItem = (props) => {
-  const { href, icon, title, ...others } = props;
-  const active = false;
+  const { href, icon, title, closeSidebar, ...others } = props;
+  const location = useLocation();
+  const active = location.pathname === href;
 
   return (
     <ListItem
@@ -18,10 +19,11 @@ export const NavItem = (props) => {
     >
       <Link
         to={href}
+        style={{width:"100%", textDecoration: "none"}}
       >
         <Button
-          component="a"
           startIcon={icon}
+          onClick={closeSidebar}
           disableRipple
           sx={{
             backgroundColor: active && 'rgba(255,255,255, 0.08)',
