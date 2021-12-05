@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { StatsCard } from "../../Components/Dashboard/StatsCard";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -10,13 +10,13 @@ import { LatestProducts } from "../../Components/Dashboard/LatestProducts";
 import { LatestOrders } from "../../Components/Dashboard/LatestOrders";
 const Dashboard = () => (
   <>
-    <Box
+    {/* <Box
       component="main"
       sx={{
-        flexGrow: 1,
-        py: 4,
+        // flexGrow: 1,
+        // py: 4,
       }}
-    >
+    > */}
       <Container maxWidth={false}>
         <Typography sx={{ m: 1 }} variant="h4">
           Analytics
@@ -72,7 +72,7 @@ const Dashboard = () => (
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    {/* </Box> */}
   </>
 );
 export default Dashboard;
