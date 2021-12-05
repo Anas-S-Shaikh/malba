@@ -13,7 +13,7 @@ export const routes = [
     component: <Dashboard />,
   },
   {
-    href: "/all-product",
+    href: "/all-products",
     icon: <ShoppingBag fontSize="small" />,
     title: "All Products",
     component: <AllProducts />,
