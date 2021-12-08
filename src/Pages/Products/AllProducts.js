@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   Divider,
   Grid,
@@ -16,6 +15,7 @@ import CategoryCard from "../../Components/Cards.js/CategoryCard";
 import cement from "../../assets/images/cement2.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../Components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -61,6 +61,7 @@ const data = [
 ];
 
 const AllProducts = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -72,6 +73,10 @@ const AllProducts = () => {
     setTimeout(() => {
       setLoading(false);
     }, 700);
+  };
+
+  const handleProductClick = (id) => {
+    navigate(`/product-details/${id}`);
   };
   return (
     <>
@@ -174,6 +179,7 @@ const AllProducts = () => {
             {data.map((product) => (
               <Grid key={product.id} item xl={3} lg={4} sm={6} xs={12}>
                 <Product
+                  onClick={() => handleProductClick(product.id)}
                   title={product.title}
                   imgSrc={product.imgSrc}
                   desc={product.desc}

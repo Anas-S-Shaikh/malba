@@ -5,17 +5,24 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, CardActionArea } from "@mui/material";
 
-export default function ProductCard({ imgSrc, title, desc, price, offer }) {
+export default function ProductCard({
+  imgSrc,
+  title,
+  desc,
+  price,
+  offer,
+  onClick,
+}) {
   return (
     <Card
       sx={{
         maxWidth: 325,
-        '&:hover': {
-          backgroundColor: 'neutral.100',
+        "&:hover": {
+          backgroundColor: "neutral.100",
         },
       }}
     >
-      <CardActionArea>
+      <CardActionArea onClick={onClick}>
         <CardMedia component="div">
           <Box
             sx={{
