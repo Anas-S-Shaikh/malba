@@ -1,11 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import ProductDetails from "./Pages/Product/ProductDetails";
 import { routes } from "./routes";
 const NotFound = () => {
-  return (
-    <h1>404</h1>
-  )
-}
+  return <h1>404</h1>;
+};
 const RoutesProvider = () => {
   return (
     <Routes>
@@ -13,6 +12,7 @@ const RoutesProvider = () => {
       {routes.map((item, index) => (
         <Route key={index} path={item.href} element={item.component} />
       ))}
+      <Route path="/product-details/:id" element={<ProductDetails />} />
     </Routes>
   );
 };
