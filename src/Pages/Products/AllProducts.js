@@ -110,7 +110,7 @@ const AllProducts = () => {
               sx={{ m: 1 }}
               variant="h5"
               color="neutral.700"
-              textAlign="center"
+              // textAlign="center"
             >
               Choose the category
             </Typography>

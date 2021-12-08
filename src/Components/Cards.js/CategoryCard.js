@@ -10,6 +10,9 @@ const CategoryCard = ({ title, desc, backgroundImage, subtitle, onClick }) => {
           borderRadius: "0",
           backgroundColor: "neutral.900",
           color: "neutral.100",
+          '&:hover': {
+            backgroundColor: 'neutral.700',
+          },
           "&::before": {
             content: '""',
             backgroundImage: `url(${backgroundImage})`,

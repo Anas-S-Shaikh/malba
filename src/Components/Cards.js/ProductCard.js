@@ -7,7 +7,14 @@ import { Box, CardActionArea } from "@mui/material";
 
 export default function ProductCard({ imgSrc, title, desc, price, offer }) {
   return (
-    <Card sx={{ maxWidth: 325 }}>
+    <Card
+      sx={{
+        maxWidth: 325,
+        '&:hover': {
+          backgroundColor: 'neutral.100',
+        },
+      }}
+    >
       <CardActionArea>
         <CardMedia component="div">
           <Box
@@ -31,7 +38,7 @@ export default function ProductCard({ imgSrc, title, desc, price, offer }) {
           <Typography variant="body2" color="text.secondary" textAlign="center">
             {desc}
           </Typography>
-          <Typography variant="subtitle1" textAlign="center" sx={{mt:1}}>
+          <Typography variant="subtitle1" textAlign="center" sx={{ mt: 1 }}>
             Rs. {price} ({offer}% off)
           </Typography>
         </CardContent>
