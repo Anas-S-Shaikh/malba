@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   Divider,
   Grid,
@@ -16,6 +17,8 @@ import cement from "../../assets/images/cement2.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
+
 
 const data = [
   {
@@ -64,32 +67,33 @@ const Categories = () => {
   };
   return (
     <>
-      <Container maxWidth={false}>
+      <Container>
         <Box
           sx={{
+            mb: 4,
             display: "flex",
+            justifyContent: "space-between",
           }}
         >
-          <Typography sx={{ m: 1 }} variant="h4" color="text.primary">
-            All Products
+          <Typography variant="h4" color="text.primary">
+          All Products
           </Typography>
+          <Button
+            variant="outlined"
+            endIcon={<AddIcon />}
+            onClick={() => {
+              navigate("/product/new");
+            }}
+          >
+            Add Product
+          </Button>
         </Box>
-        <Divider
-          sx={{
-            mt: 1,
-            mb: 2,
-          }}
-        />
 
         {loading ? (
           <Loader />
         ) : (
           <>
-            <Typography
-              sx={{ m: 1 }}
-              variant="h5"
-              color="neutral.700"
-            >
+            <Typography sx={{ mb: 1 }} variant="h5" color="neutral.700">
               Choose the category
             </Typography>
             <Grid container spacing={2}>

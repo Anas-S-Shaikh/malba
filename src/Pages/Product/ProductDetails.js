@@ -59,7 +59,7 @@ const ProductDetails = () => {
             }}
             startIcon={<ArrowBackIcon />}
           >
-            Go back
+            Tiles
           </Button>
         </Box>
 
@@ -75,7 +75,7 @@ const ProductDetails = () => {
               </Typography>
               <Box>
                 <Typography color="textSecondary" gutterBottom variant="body1">
-                  In Tiles
+                  {id}
                 </Typography>
               </Box>
             </Grid>

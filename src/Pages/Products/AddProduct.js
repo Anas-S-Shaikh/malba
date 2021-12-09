@@ -142,7 +142,11 @@ const AddProduct = () => {
     }
     setError(temp);
     if (flag) {
-      navigate("/products");
+      if (id) {
+        navigate("/product-details/ec28fb41-6c91-46b7-9d94-43abe7a109cc");
+      } else {
+        navigate("/products");
+      }
     }
   };
 
@@ -316,8 +320,22 @@ const AddProduct = () => {
         </Card>
 
         <Grid container spacing={3} justifyContent="flex-end">
-          <Grid item xl={3} sm={2} xs={12}>
+          <Grid item xl={3} sm={3} xs={12}>
             <CardActions>
+              <Button
+                size="large"
+                variant="outlined"
+                fullWidth
+                onClick={()=> {
+                  if (id) {
+                    navigate("/product-details/ec28fb41-6c91-46b7-9d94-43abe7a109cc");
+                  } else {
+                    navigate("/products");
+                  }
+                }}
+              >
+                Cancel
+              </Button>
               <Button
                 size="large"
                 variant="contained"
@@ -330,7 +348,7 @@ const AddProduct = () => {
             </CardActions>
           </Grid>
         </Grid>
-      </Container>
+      </Container>3
     </>
   );
 };

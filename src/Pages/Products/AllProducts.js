@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   Divider,
   Grid,
@@ -14,6 +15,7 @@ import { v4 as uuid } from "uuid";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
 
 const data = [
   {
@@ -81,26 +83,43 @@ const AllProducts = () => {
       <Container>
         <Box
           sx={{
-            display: "flex",
-          }}
-        >
-          <IconButton
-            onClick={() => {
-              navigate(`/products`);
-            }}
-          >
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography sx={{ m: 1 }} variant="h4" color="text.primary">
-            Tiles
-          </Typography>
-        </Box>
-        <Divider
-          sx={{
-            mt: 1,
             mb: 2,
           }}
-        />
+        >
+          <Button
+            sx={{
+              p: 0,
+              color: "neutral.500",
+            }}
+            // color='neutral.400'
+            onClick={() => {
+              navigate("/products");
+            }}
+            startIcon={<ArrowBackIcon />}
+          >
+            All Products
+          </Button>
+        </Box>
+        <Box
+          sx={{
+            mb: 4,
+            display:'flex',
+            justifyContent:'space-between'
+          }}
+        >
+          <Typography variant="h4" color="text.primary">
+            Tiles
+          </Typography>
+          <Button
+            variant="outlined"
+            endIcon={<AddIcon />}
+            onClick={() => {
+              navigate("/product/new");
+            }}
+          >
+            Add Product
+          </Button>
+        </Box>
 
         {loading ? (
           <Loader />

@@ -16,7 +16,7 @@ export default function ProductCard({
   return (
     <Card
       sx={{
-        maxWidth: 325,
+        // maxWidth: 325,
         "&:hover": {
           backgroundColor: "neutral.100",
         },
