@@ -11,14 +11,16 @@ import {
   Autocomplete,
 } from "@mui/material";
 import { styled } from "@mui/styles";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
+import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 const Input = styled("input")({
   display: "none",
 });
 
 const AddProduct = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [formFields, setFormFields] = useState({
     title: "",
@@ -33,6 +35,23 @@ const AddProduct = () => {
     images: "",
   });
   const [error, setError] = useState([]);
+
+  useEffect(() => {
+    if (id) {
+      setFormFields({
+        title: "Zigzag Tiles",
+        category: { label: "Tiles", value: "Tiles" },
+        brand: "",
+        manufacturer: "",
+        productID: id,
+        qty: "100",
+        price: "1345",
+        unit: "kg",
+        desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
+        images: "",
+      });
+    }
+  }, [id]);
 
   const handleChange = (evt, newVal) => {
     const { name, value } = evt.target;
@@ -61,7 +80,6 @@ const AddProduct = () => {
 
   const handleBlur = (evt, newVal) => {
     const { name, value } = evt.target;
-    console.log(name, value);
     let temp = [...error];
     let index = temp.indexOf(name);
     if (value.trim() === "") {
@@ -124,7 +142,7 @@ const AddProduct = () => {
     }
     setError(temp);
     if (flag) {
-      navigate("/all-products");
+      navigate("/products");
     }
   };
 
@@ -137,7 +155,7 @@ const AddProduct = () => {
     <>
       <Container maxWidth={false}>
         <Typography sx={{ m: 1 }} variant="h4">
-          Add New Product
+          {!id ? "Add New Product" : "Edit"}
         </Typography>
         <Card>
           <CardContent>

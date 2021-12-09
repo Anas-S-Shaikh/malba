@@ -9,18 +9,39 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import EditIcon from "@mui/icons-material/Edit";
 import zigzag from "../../assets/images/zig-zag.jpeg";
+import ConfirmAlert from "../../Components/Alert/ConfirmAlert";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const { id } = useParams();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
+      <ConfirmAlert
+        open={open}
+        onClose={handleClose}
+        title="Are you sure?"
+        msg={
+          "You are about to delete this product, this process is irreversible. By accepting this product will be deleted permanently."
+        }
+        onSubmit={() => {
+          navigate("/products/1c9d5555-9321-4749-87f6-45588c707fee");
+        }}
+      />
       <Container>
         <Box
           sx={{
@@ -34,11 +55,11 @@ const ProductDetails = () => {
             }}
             // color='neutral.400'
             onClick={() => {
-              navigate("/all-products");
+              navigate("/products/1c9d5555-9321-4749-87f6-45588c707fee");
             }}
             startIcon={<ArrowBackIcon />}
           >
-            All Products
+            Go back
           </Button>
         </Box>
 
@@ -56,11 +77,18 @@ const ProductDetails = () => {
                 <Typography color="textSecondary" gutterBottom variant="body1">
                   In Tiles
                 </Typography>
-                {/* <Typography> In Cement </Typography> */}
               </Box>
             </Grid>
             <Grid item xl={3} sm={3} xs={12} textAlign="end">
-              <Button variant="outlined" endIcon={<EditIcon />}>
+              <Button
+                variant="outlined"
+                endIcon={<EditIcon />}
+                onClick={() => {
+                  navigate(
+                    "/product/edit/1c9d5555-9321-4749-87f6-45588c707fee"
+                  );
+                }}
+              >
                 Edit
               </Button>
               <Button
@@ -68,6 +96,7 @@ const ProductDetails = () => {
                 color="error"
                 endIcon={<EditIcon />}
                 sx={{ ml: 1 }}
+                onClick={handleClickOpen}
               >
                 Delete
               </Button>

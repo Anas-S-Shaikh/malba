@@ -11,6 +11,8 @@ import Product from "../../Components/Cards.js/ProductCard";
 import zigzag from "../../assets/images/zig-zag.jpeg";
 import dumbell from "../../assets/images/dumble-shape.jpg";
 import { v4 as uuid } from "uuid";
+import CategoryCard from "../../Components/Cards.js/CategoryCard";
+import cement from "../../assets/images/cement2.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
@@ -18,47 +20,31 @@ import { useNavigate } from "react-router-dom";
 const data = [
   {
     id: uuid(),
-    title: "Zig-zag Tiles",
-    imgSrc: zigzag,
+    title: "Aggregate",
+    imgSrc: cement,
     desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
-    price: "5000",
+    subtitle: "widespread group of squamate reptiles",
     offer: "50",
   },
   {
     id: uuid(),
-    title: "Dumbell-shaped tiles",
-    imgSrc: dumbell,
+    title: "Tiles",
+    imgSrc: cement,
     desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
-    price: "2000",
+    subtitle: "widespread group of squamate reptiles",
     offer: "29",
   },
   {
     id: uuid(),
-    title: "Zig-zag Tiles",
-    imgSrc: zigzag,
+    title: "TMT Steels",
+    imgSrc: cement,
     desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
-    price: "5000",
-    offer: "50",
-  },
-  {
-    id: uuid(),
-    title: "Dumbell-shaped tiles",
-    imgSrc: dumbell,
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
-    price: "2000",
-    offer: "29",
-  },
-  {
-    id: uuid(),
-    title: "Zig-zag Tiles",
-    imgSrc: zigzag,
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
-    price: "5000",
+    subtitle: "widespread group of squamate reptiles",
     offer: "50",
   },
 ];
 
-const AllProducts = () => {
+const Categories = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -73,26 +59,19 @@ const AllProducts = () => {
     }, 700);
   };
 
-  const handleProductClick = (id) => {
-    navigate(`/product-details/${id}`);
+  const handleCategoryClick = (id) => {
+    navigate(`/products/${id}`);
   };
   return (
     <>
-      <Container>
+      <Container maxWidth={false}>
         <Box
           sx={{
             display: "flex",
           }}
         >
-          <IconButton
-            onClick={() => {
-              navigate(`/products`);
-            }}
-          >
-            <ArrowBackIcon />
-          </IconButton>
           <Typography sx={{ m: 1 }} variant="h4" color="text.primary">
-            Tiles
+            All Products
           </Typography>
         </Box>
         <Divider
@@ -105,24 +84,34 @@ const AllProducts = () => {
         {loading ? (
           <Loader />
         ) : (
-          <Grid container spacing={3}>
-            {data.map((product) => (
-              <Grid key={product.id} item xl={3} lg={4} sm={6} xs={12}>
-                <Product
-                  onClick={() => handleProductClick(product.id)}
-                  title={product.title}
-                  imgSrc={product.imgSrc}
-                  desc={product.desc}
-                  price={product.price}
-                  offer={product.offer}
-                />
-              </Grid>
-            ))}
-          </Grid>
+          <>
+            <Typography
+              sx={{ m: 1 }}
+              variant="h5"
+              color="neutral.700"
+            >
+              Choose the category
+            </Typography>
+            <Grid container spacing={2}>
+              {data.map((category) => (
+                <Grid item key={category.id} xl={3} sm={6} xs={12}>
+                  <CategoryCard
+                    onClick={() => {
+                      handleCategoryClick(category.id);
+                    }}
+                    backgroundImage={category.imgSrc}
+                    title={category.title}
+                    desc={category.desc}
+                    subtitle={category.subtitle}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </>
         )}
       </Container>
     </>
   );
 };
 
-export default AllProducts;
+export default Categories;

@@ -5,6 +5,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import AddService from "./Pages/Services/AddService";
 import AllServices from "./Pages/Services/AllServices";
 import AllProducts from "./Pages/Products/AllProducts";
+import Categories from "./Pages/Categories/Categories";
 
 export const routes = [
   {
@@ -14,13 +15,13 @@ export const routes = [
     component: <Dashboard />,
   },
   {
-    href: "/all-products",
+    href: "/products",
     icon: <ShoppingBag fontSize="small" />,
     title: "All Products",
-    component: <AllProducts />,
+    component: <Categories />,
   },
   {
-    href: "/add-product",
+    href: "/product/new",
     icon: <ShoppingBag fontSize="small" />,
     title: "Add New Products",
     component: <AddProduct />,
