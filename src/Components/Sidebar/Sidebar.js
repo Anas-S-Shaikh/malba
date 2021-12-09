@@ -21,7 +21,15 @@ export const Sidebar = (props) => {
         }}
       >
         <div>
-          <Box sx={{ p: 3, fontFamily:'Roboto', letterSpacing:'4px', fontWeight:'600', textAlign:'center' }}>
+          <Box
+            sx={{
+              p: 3,
+              fontFamily: "Roboto",
+              letterSpacing: "4px",
+              fontWeight: "600",
+              textAlign: "center",
+            }}
+          >
             MALBA
           </Box>
         </div>
@@ -39,6 +47,7 @@ export const Sidebar = (props) => {
               href={item.href}
               closeSidebar={onClose}
               title={item.title}
+              subList={item.children}
             />
           ))}
         </Box>

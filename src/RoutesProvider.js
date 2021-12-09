@@ -11,9 +11,15 @@ const RoutesProvider = () => {
   return (
     <Routes>
       <Route path="*" element={<NotFound />} />
-      {routes.map((item, index) => (
-        <Route key={index} path={item.href} element={item.component} />
-      ))}
+      {routes.map((item, index) => {
+        return item.children ? (
+          item.children.map((child, idx) => (
+            <Route key={idx} path={child.href} element={child.component} />
+          ))
+        ) : (
+          <Route key={index} path={item.href} element={item.component} />
+        );
+      })}
       <Route path="/product-details/:id" element={<ProductDetails />} />
       <Route path="/products/:id" element={<AllProducts />} />
       <Route path="/product/edit/:id" element={<AddProduct />} />

@@ -15,17 +15,27 @@ export const routes = [
     component: <Dashboard />,
   },
   {
-    href: "/products",
+    href: "product",
     icon: <ShoppingBag fontSize="small" />,
     title: "All Products",
-    component: <Categories />,
+    // component: <Categories />,
+    children:[
+      {
+        href: "/products",
+        icon: <ShoppingBag fontSize="small" />,
+        title: "All Products",
+        component: <Categories />,
+      },
+      {
+        href: "/product/new",
+        icon: <ShoppingBag fontSize="small" />,
+        title: "Add New Products",
+        component: <AddProduct />,
+      },
+
+    ]
   },
-  {
-    href: "/product/new",
-    icon: <ShoppingBag fontSize="small" />,
-    title: "Add New Products",
-    component: <AddProduct />,
-  },
+  
   {
     href: "/add-service",
     icon: <WorkIcon fontSize="small" />,
