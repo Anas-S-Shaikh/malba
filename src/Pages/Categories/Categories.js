@@ -2,19 +2,13 @@ import {
   Box,
   Button,
   Container,
-  Divider,
   Grid,
-  IconButton,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import Product from "../../Components/Cards.js/ProductCard";
-import zigzag from "../../assets/images/zig-zag.jpeg";
-import dumbell from "../../assets/images/dumble-shape.jpg";
 import { v4 as uuid } from "uuid";
 import CategoryCard from "../../Components/Cards.js/CategoryCard";
 import cement from "../../assets/images/cement2.jpg";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
@@ -49,7 +43,6 @@ const data = [
 
 const Categories = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     simmulateLoading();

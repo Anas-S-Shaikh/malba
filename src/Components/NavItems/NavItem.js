@@ -4,7 +4,6 @@ import {
   Collapse,
   List,
   ListItem,
-  ListItemButton,
 } from "@mui/material";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -16,7 +15,7 @@ export const NavItem = (props) => {
   const navigate = useNavigate();
 
   const { href, icon, title, closeSidebar, subList, ...others } = props;
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
   const active = location.pathname === href;
 
@@ -36,10 +35,11 @@ export const NavItem = (props) => {
         <Button
           startIcon={icon}
           endIcon={subList && (open ? <ExpandLess /> : <ExpandMore />)}
-          onClick={closeSidebar}
+          // onClick={closeSidebar}
           disableRipple
           onClick={() => {
             if (!subList) {
+              closeSidebar();
               navigate(href);
             } else {
               setOpen(!open);
@@ -84,8 +84,9 @@ export const NavItem = (props) => {
       {subList && (
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            {subList.map((child) => (
+            {subList.map((child, index) => (
               <ListItem
+                key={index}
                 disableGutters
                 sx={{
                   display: "flex",

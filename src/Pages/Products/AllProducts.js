@@ -2,9 +2,7 @@ import {
   Box,
   Button,
   Container,
-  Divider,
   Grid,
-  IconButton,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
@@ -62,7 +60,6 @@ const data = [
 
 const AllProducts = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     simmulateLoading();

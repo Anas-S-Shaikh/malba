@@ -18,7 +18,7 @@ const MainLayoutRoot = styled("div")(({ theme }) => ({
 
 export const MainLayout = (props) => {
   const { children } = props;
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>

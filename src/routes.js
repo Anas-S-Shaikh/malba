@@ -4,7 +4,6 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import WorkIcon from "@mui/icons-material/Work";
 import AddService from "./Pages/Services/AddService";
 import AllServices from "./Pages/Services/AllServices";
-import AllProducts from "./Pages/Products/AllProducts";
 import Categories from "./Pages/Categories/Categories";
 
 export const routes = [
@@ -17,13 +16,13 @@ export const routes = [
   {
     href: "product",
     icon: <ShoppingBag fontSize="small" />,
-    title: "All Products",
+    title: "Products",
     // component: <Categories />,
     children:[
       {
         href: "/products",
         icon: <ShoppingBag fontSize="small" />,
-        title: "All Products",
+        title: "Categories",
         component: <Categories />,
       },
       {
