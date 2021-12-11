@@ -15,6 +15,7 @@ import React, { useState, useEffect } from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
+import SnackbarAlert from "../../Components/Snackbar/Snackbar";
 const Input = styled("input")({
   display: "none",
 });
@@ -22,6 +23,8 @@ const Input = styled("input")({
 const AddProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarmsg, setSnackbarmsg] = useState("");
   const [formFields, setFormFields] = useState({
     title: "",
     category: null,
@@ -142,11 +145,16 @@ const AddProduct = () => {
     }
     setError(temp);
     if (flag) {
+      setSnackbarmsg("Product Successfully Added!");
+      setSnackbarOpen(true);
       if (id) {
         navigate("/product-details/ec28fb41-6c91-46b7-9d94-43abe7a109cc");
       } else {
         navigate("/products");
       }
+    } else {
+      setSnackbarmsg("Please fill correct details!");
+      setSnackbarOpen(true);
     }
   };
 
@@ -157,6 +165,11 @@ const AddProduct = () => {
   ];
   return (
     <>
+      <SnackbarAlert
+        open={snackbarOpen}
+        msg={snackbarmsg}
+        handleClose={() => setSnackbarOpen(false)}
+      />
       <Container maxWidth={false}>
         <Typography sx={{ m: 1 }} variant="h4">
           {!id ? "Add New Product" : "Edit"}
@@ -326,9 +339,11 @@ const AddProduct = () => {
                 size="large"
                 variant="outlined"
                 fullWidth
-                onClick={()=> {
+                onClick={() => {
                   if (id) {
-                    navigate("/product-details/ec28fb41-6c91-46b7-9d94-43abe7a109cc");
+                    navigate(
+                      "/product-details/ec28fb41-6c91-46b7-9d94-43abe7a109cc"
+                    );
                   } else {
                     navigate("/products");
                   }
@@ -348,7 +363,7 @@ const AddProduct = () => {
             </CardActions>
           </Grid>
         </Grid>
-      </Container>3
+      </Container>
     </>
   );
 };
