@@ -21,8 +21,10 @@ const RoutesProvider = () => {
         );
       })}
       <Route path="/product-details/:id" element={<ProductDetails />} />
+      <Route path="/service-details/:id" element={<ProductDetails />} />
       <Route path="/products/:id" element={<AllProducts />} />
       <Route path="/product/edit/:id" element={<AddProduct />} />
+      <Route path="/service/edit/:id" element={<AddProduct />} />
     </Routes>
   );
 };

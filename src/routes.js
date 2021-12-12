@@ -34,17 +34,24 @@ export const routes = [
 
     ]
   },
-  
   {
-    href: "/add-service",
-    icon: <WorkIcon fontSize="small" />,
-    title: "Add New Service",
-    component: <AddService />,
-  },
-  {
-    href: "/all-services",
+    href: "service",
     icon: <ShoppingBag fontSize="small" />,
-    title: "All Services",
-    component: <AllServices />,
+    title: "Services",
+    children:[
+      {
+        href: "/services",
+        icon: <ShoppingBag fontSize="small" />,
+        title: "Categories",
+        component: <AllServices />,
+      },
+      {
+        href: "/service/new",
+        icon: <WorkIcon fontSize="small" />,
+        title: "Add New Service",
+        component: <AddService />,
+      }
+
+    ]
   },
 ];
