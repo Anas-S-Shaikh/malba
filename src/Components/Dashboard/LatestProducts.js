@@ -55,7 +55,7 @@ export const LatestProducts = (props) => (
   <Card {...props}>
     <CardHeader
       subtitle={`${products.length} in total`}
-      title="Latest Products"
+      title="Product Inventory"
     />
     <Divider />
     <List>

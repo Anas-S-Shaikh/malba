@@ -255,6 +255,9 @@ export const theme = createTheme({
     },
     overline: {
       fontSize: '0.75rem',
+      // '@media (max-width:600px)': {
+      //   fontSize: '0.65rem',
+      // },
       fontWeight: 600,
       letterSpacing: '0.5px',
       lineHeight: 2.5,

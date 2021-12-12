@@ -9,8 +9,8 @@ import {
 export const StatsCard = ({ title, data, color, icon }) => (
   <Card>
     <CardContent>
-      <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
-        <Grid item>
+      <Grid container spacing={3} justifyContent='space-between'>
+        <Grid item xs={8} >
           <Typography color="textSecondary" gutterBottom variant="overline">
             {title}
           </Typography>
@@ -19,12 +19,13 @@ export const StatsCard = ({ title, data, color, icon }) => (
             {/* $24k */}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <Avatar
             sx={{
               backgroundColor: color,
-              height: 56,
-              width: 56,
+              height: { xs : 35, sm: 56},
+              width: { xs : 35, sm: 56},
+              // width: 56,
             }}
           >
             {/* <MoneyIcon /> */}

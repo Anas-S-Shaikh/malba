@@ -17,61 +17,61 @@ const Dashboard = () => (
         // py: 4,
       }}
     > */}
-      <Container maxWidth={false}>
-        <Typography sx={{ m: 1 }} variant="h4">
-          Analytics
-        </Typography>
-        <Grid container spacing={3}>
-          <Grid item xl={3} lg={3} sm={6} xs={12}>
-            {/* <TotalProfit sx={{ height: "100%" }} /> */}
-            <StatsCard
-              title="Lifetime Sales"
-              data="₹23k"
-              color="success.main"
-              icon={<AttachMoneyIcon />}
-            />
-          </Grid>
-          <Grid item lg={3} sm={6} xl={3} xs={12}>
-            {/* <Budget sx={{ height: "100%" }} /> */}
-            <StatsCard
-              title="Total Orders"
-              data="5340"
-              color="primary.main"
-              icon={<LocalShippingIcon />}
-            />
-          </Grid>
-          <Grid item xl={3} lg={3} sm={6} xs={12}>
-            {/* <TotalCustomers /> */}
-            <StatsCard
-              title="Pending Payment"
-              data="₹19.09k"
-              color="error.main"
-              icon={<PendingActionsIcon />}
-            />
-          </Grid>
-          <Grid item xl={3} lg={3} sm={6} xs={12}>
-            {/* <TasksProgress /> */}
-            <StatsCard
-              title="Pending Order"
-              data="23"
-              color="error.main"
-              icon={<HourglassBottomIcon />}
-            />
-          </Grid>
-          <Grid item lg={8} md={12} xl={9} xs={12}>
-            <Sales />
-          </Grid>
-          <Grid item lg={4} md={6} xl={3} xs={12}>
-            <TrafficByDevice sx={{ height: "100%" }} />
-          </Grid>
-          <Grid item lg={4} md={6} xl={3} xs={12}>
-            <LatestProducts sx={{ height: "100%" }} />
-          </Grid>
-          <Grid item lg={8} md={12} xl={9} xs={12}>
-            <LatestOrders />
-          </Grid>
+    <Container maxWidth={false}>
+      <Typography sx={{ m: 1 }} variant="h4">
+        Analytics
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item lg={4} md={6} xl={3} xs={12}>
+          <TrafficByDevice sx={{ height: "100%" }} />
         </Grid>
-      </Container>
+        <Grid item lg={8} md={12} xl={9} xs={12}>
+          <Sales />
+        </Grid>
+        <Grid item lg={4} md={6} xl={3} xs={12}>
+          <LatestProducts sx={{ height: "100%" }} />
+        </Grid>
+        <Grid item lg={8} md={12} xl={9} xs={12}>
+          <LatestOrders />
+        </Grid>
+        <Grid item xl={3} lg={3} sm={6} xs={6}>
+          {/* <TotalProfit sx={{ height: "100%" }} /> */}
+          <StatsCard
+            title="Lifetime Sales"
+            data="₹23k"
+            color="success.main"
+            icon={<AttachMoneyIcon />}
+          />
+        </Grid>
+        <Grid item lg={3} sm={6} xl={3} xs={6}>
+          {/* <Budget sx={{ height: "100%" }} /> */}
+          <StatsCard
+            title="Total Orders"
+            data="5340"
+            color="primary.main"
+            icon={<LocalShippingIcon />}
+          />
+        </Grid>
+        <Grid item xl={3} lg={3} sm={6} xs={6}>
+          {/* <TotalCustomers /> */}
+          <StatsCard
+            title="Pending Payment"
+            data="₹19.09k"
+            color="error.main"
+            icon={<PendingActionsIcon />}
+          />
+        </Grid>
+        <Grid item xl={3} lg={3} sm={6} xs={6}>
+          {/* <TasksProgress /> */}
+          <StatsCard
+            title="Pending Order"
+            data="23"
+            color="error.main"
+            icon={<HourglassBottomIcon />}
+          />
+        </Grid>
+      </Grid>
+    </Container>
     {/* </Box> */}
   </>
 );
