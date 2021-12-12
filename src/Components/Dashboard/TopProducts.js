@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Aggregate, Cement, Tiles } from "../../assets/svg";
 
-export const TrafficByDevice = (props) => {
+export const TopProducts = (props) => {
   const theme = useTheme();
 
   const data = {
@@ -27,7 +27,7 @@ export const TrafficByDevice = (props) => {
   };
 
   const options = {
-    animation: false,
+    animation: true,
     cutoutPercentage: 80,
     layout: { padding: 0 },
     legend: {
@@ -46,6 +46,14 @@ export const TrafficByDevice = (props) => {
       mode: "index",
       titleFontColor: theme.palette.text.primary,
     },
+    plugins: {
+      legend: {
+          display: false,
+          // labels: {
+          //     color: 'rgb(255, 99, 132)'
+          // }
+      }
+  }
   };
 
   const devices = [

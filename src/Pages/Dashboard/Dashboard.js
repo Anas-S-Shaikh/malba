@@ -5,7 +5,7 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import { Sales } from "../../Components/Dashboard/Sales";
-import { TrafficByDevice } from "../../Components/Dashboard/TrafficByDevice";
+import { TopProducts } from "../../Components/Dashboard/TopProducts";
 import { LatestProducts } from "../../Components/Dashboard/LatestProducts";
 import { LatestOrders } from "../../Components/Dashboard/LatestOrders";
 const Dashboard = () => (
@@ -17,21 +17,21 @@ const Dashboard = () => (
         // py: 4,
       }}
     > */}
-    <Container maxWidth={false}>
+    <Container maxWidth={false} sx={{ py:2}}>
       <Typography sx={{ m: 1 }} variant="h4">
         Analytics
       </Typography>
       <Grid container spacing={3}>
-        <Grid item lg={4} md={6} xl={3} xs={12}>
-          <TrafficByDevice sx={{ height: "100%" }} />
+        <Grid item lg={4} md={4} xl={3} xs={12}>
+          <TopProducts sx={{ height: "100%" }} />
         </Grid>
-        <Grid item lg={8} md={12} xl={9} xs={12}>
+        <Grid item lg={8} md={8} xl={9} xs={12}>
           <Sales />
         </Grid>
-        <Grid item lg={4} md={6} xl={3} xs={12}>
+        <Grid item lg={4} md={4} xl={3} xs={12}>
           <LatestProducts sx={{ height: "100%" }} />
         </Grid>
-        <Grid item lg={8} md={12} xl={9} xs={12}>
+        <Grid item lg={8} md={8} xl={9} xs={12}>
           <LatestOrders />
         </Grid>
         <Grid item xl={3} lg={3} sm={6} xs={6}>
