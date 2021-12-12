@@ -89,7 +89,7 @@ export const LatestProducts = (props) => (
         p: 2,
       }}
     >
-      <Link to="all-product">
+      <Link to="/products">
         <Button
           color="primary"
           endIcon={<ArrowRightIcon />}

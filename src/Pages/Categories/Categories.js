@@ -1,18 +1,10 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import CategoryCard from "../../Components/Cards.js/CategoryCard";
 import cement from "../../assets/images/cement2.jpg";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
-import AddIcon from '@mui/icons-material/Add';
-
 
 const data = [
   {
@@ -69,17 +61,8 @@ const Categories = () => {
           }}
         >
           <Typography variant="h4" color="text.primary">
-          All Products
+            All Products
           </Typography>
-          <Button
-            variant="outlined"
-            endIcon={<AddIcon />}
-            onClick={() => {
-              navigate("/product/new");
-            }}
-          >
-            Add Product
-          </Button>
         </Box>
 
         {loading ? (

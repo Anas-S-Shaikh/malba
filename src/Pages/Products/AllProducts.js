@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Container,
+  Fab,
   Grid,
   Typography,
 } from "@mui/material";
@@ -109,6 +110,9 @@ const AllProducts = () => {
           </Typography>
           <Button
             variant="outlined"
+            sx={{
+              display: { sm: "inline-flex", xs: "none" },
+            }}
             endIcon={<AddIcon />}
             onClick={() => {
               navigate("/product/new");
@@ -136,6 +140,21 @@ const AllProducts = () => {
             ))}
           </Grid>
         )}
+        <Fab
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            right: 16,
+            display: { sm: "none" },
+          }}
+          aria-label="Add Product"
+          color="primary"
+          onClick={() => {
+            navigate("/product/new");
+          }}
+        >
+          <AddIcon />
+        </Fab>
       </Container>
     </>
   );

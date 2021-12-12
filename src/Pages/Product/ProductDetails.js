@@ -7,7 +7,12 @@ import {
   Container,
   Divider,
   Grid,
+  IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
   Typography,
+  Tooltip,
 } from "@mui/material";
 import React, { useState } from "react";
 import { useParams } from "react-router";
@@ -16,10 +21,14 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import EditIcon from "@mui/icons-material/Edit";
 import zigzag from "../../assets/images/zig-zag.jpeg";
 import ConfirmAlert from "../../Components/Alert/ConfirmAlert";
+import { MoreVert, } from "@mui/icons-material";
+import DeleteIcon from "@mui/icons-material/Delete";
+// import { Tooltip } from "chart.js";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const { id } = useParams();
 
   const handleClickOpen = () => {
@@ -69,7 +78,7 @@ const ProductDetails = () => {
           }}
         >
           <Grid container justifyContent="space-between">
-            <Grid item xl={3} sm={6} xs={12}>
+            <Grid item xl={3} sm={6} xs={10}>
               <Typography variant="h4" color="text.primary">
                 Zigzag Tiles
               </Typography>
@@ -79,9 +88,10 @@ const ProductDetails = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xl={3} sm={3} xs={12} textAlign="end">
+            <Grid item xl={3} sm={3} xs={2} textAlign="end">
               <Button
                 variant="outlined"
+                sx={{ display: { sm: "inline-flex", xs: "none" } }}
                 endIcon={<EditIcon />}
                 onClick={() => {
                   navigate(
@@ -95,11 +105,68 @@ const ProductDetails = () => {
                 variant="outlined"
                 color="error"
                 endIcon={<EditIcon />}
-                sx={{ ml: 1 }}
+                sx={{ ml: 1, display: { sm: "inline-flex", xs: "none" } }}
                 onClick={handleClickOpen}
               >
                 Delete
               </Button>
+
+              <Tooltip title="Account settings">
+                <IconButton
+                  onClick={(event) => setAnchorEl(event.currentTarget)}
+                  size="small"
+                  sx={{ ml: 2, display: { sm: "none" } }}
+                >
+                  <MoreVert />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={() => setAnchorEl(null)}
+                onClick={() => setAnchorEl(null)}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "background.paper",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <MenuItem
+                  onClick={() => {
+                    navigate(
+                      "/product/edit/1c9d5555-9321-4749-87f6-45588c707fee"
+                    );
+                  }}
+                >
+                  <ListItemIcon>
+                    <EditIcon fontSize="small" />
+                  </ListItemIcon>
+                  Edit
+                </MenuItem>
+                <MenuItem onClick={handleClickOpen}>
+                  <ListItemIcon>
+                    <DeleteIcon color="error" fontSize="small" />
+                  </ListItemIcon>
+                  Delete
+                </MenuItem>
+              </Menu>
             </Grid>
           </Grid>
         </Box>
