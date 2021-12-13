@@ -11,14 +11,15 @@ import {
   Autocomplete,
 } from "@mui/material";
 import { styled } from "@mui/styles";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const Input = styled("input")({
   display: "none",
 });
 
 const AddService = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [formFields, setFormFields] = useState({
     title: "",
@@ -29,6 +30,19 @@ const AddService = () => {
     images: "",
   });
   const [error, setError] = useState([]);
+
+  useEffect(() => {
+    if (id) {
+      setFormFields({
+        title: "Masons and contractors",
+        category: { label: "Tiles", value: "Tiles" },
+        duration: "05",
+        price: "1345",
+        desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
+        images: "",
+      });
+    }
+  }, [id]);
 
   const handleChange = (evt, newVal) => {
     const { name, value } = evt.target;
@@ -106,7 +120,11 @@ const AddService = () => {
     }
     setError(temp);
     if (flag) {
-      navigate("/all-services");
+      if (id) {
+        navigate(`/service-details/${id}`);
+      } else {
+        navigate("/services");
+      }
     }
   };
 
@@ -119,7 +137,7 @@ const AddService = () => {
     <>
       <Container maxWidth={false}>
         <Typography sx={{ m: 1 }} variant="h4">
-          Add New Service
+          {!id ? "Add New Service" : "Edit"}
         </Typography>
         <Card>
           <CardContent>
@@ -224,6 +242,20 @@ const AddService = () => {
         <Grid container spacing={3} justifyContent="flex-end">
           <Grid item xl={3} sm={2} xs={12}>
             <CardActions>
+              <Button
+                size="large"
+                variant="outlined"
+                fullWidth
+                onClick={() => {
+                  if (id) {
+                    navigate(`/service-details/${id}"`);
+                  } else {
+                    navigate("/services");
+                  }
+                }}
+              >
+                Cancel
+              </Button>
               <Button
                 size="large"
                 variant="contained"
