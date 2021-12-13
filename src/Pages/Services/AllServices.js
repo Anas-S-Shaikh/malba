@@ -1,32 +1,35 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Fab, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import CategoryCard from "../../Components/Cards.js/CategoryCard";
-import cement from "../../assets/images/cement2.jpg";
+import masons_and_contractors from "../../assets/images/masons_and_contractors.jpg";
+import professionals from "../../assets/images/professionals.jpg";
+import home from "../../assets/images/home.jpg";
 import Loader from "../../Components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
 
 const data = [
   {
     id: uuid(),
-    title: "Aggregate",
-    imgSrc: cement,
+    title: "Masons and contractors",
+    imgSrc: masons_and_contractors,
     desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
     subtitle: "widespread group of squamate reptiles",
     offer: "50",
   },
   {
     id: uuid(),
-    title: "Tiles",
-    imgSrc: cement,
+    title: "Architects and engineers",
+    imgSrc: professionals,
     desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
     subtitle: "widespread group of squamate reptiles",
     offer: "29",
   },
   {
     id: uuid(),
-    title: "TMT Steels",
-    imgSrc: cement,
+    title: "Individual home builder",
+    imgSrc: home,
     desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species.",
     subtitle: "widespread group of squamate reptiles",
     offer: "50",
@@ -48,7 +51,7 @@ const Categories = () => {
   };
 
   const handleCategoryClick = (id) => {
-    navigate(`/products/${id}`);
+    navigate(`/service-details/${id}`);
   };
   return (
     <>
@@ -63,6 +66,19 @@ const Categories = () => {
           <Typography variant="h4" color="text.primary">
             All Services
           </Typography>
+
+          <Button
+            variant="outlined"
+            sx={{
+              display: { sm: "inline-flex", xs: "none" },
+            }}
+            endIcon={<AddIcon />}
+            onClick={() => {
+              navigate("/service/new");
+            }}
+          >
+            Add Service
+          </Button>
         </Box>
 
         {loading ? (
@@ -89,6 +105,21 @@ const Categories = () => {
             </Grid>
           </>
         )}
+        <Fab
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            right: 16,
+            display: { sm: "none" },
+          }}
+          aria-label="Add Product"
+          color="primary"
+          onClick={() => {
+            navigate("/product/new");
+          }}
+        >
+          <AddIcon />
+        </Fab>
       </Container>
     </>
   );
