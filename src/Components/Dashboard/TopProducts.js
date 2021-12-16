@@ -103,6 +103,7 @@ export const TopProducts = (props) => {
               sx={{
                 p: 1,
                 textAlign: "center",
+                height: 'fit-content'
               }}
             >
               <Icon
